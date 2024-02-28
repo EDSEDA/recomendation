@@ -5,10 +5,16 @@
 App for manage ...
 
 ## Dependencies
-- RabbitMQ
+RabbitMQ
   - for init run command:
 ``` bash
 sudo docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.12-management`
+```
+
+Kafka
+  -link: https://docs.confluent.io/platform/6.0/quickstart/ce-docker-quickstart.html
+``` bash
+docker-compose up -d
 ```
 
 ## Quiq start

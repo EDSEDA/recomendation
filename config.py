@@ -1,4 +1,5 @@
 from pydantic_settings import BaseSettings
+import logging
 
 
 class Settings(BaseSettings):
@@ -9,11 +10,14 @@ class Settings(BaseSettings):
 
     QUEUE_NAME: str = 'my_queue'
 
+    LogLevel: int = logging.INFO
+
     class Config:
         env_file = '.env'
         env_file_encoding = 'utf-8'
 
 
 settings = Settings()
+logging.basicConfig(level=logging.INFO)
 
 CLIENT_AVATAR_PATH = 'resources/clients'
