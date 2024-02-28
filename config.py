@@ -10,6 +10,8 @@ class Settings(BaseSettings):
 
     QUEUE_NAME: str = 'my_queue'
 
+    ZOOKEEPER_CLIENT_PORT: int = 2181
+
     LogLevel: int = logging.INFO
 
     class Config:
