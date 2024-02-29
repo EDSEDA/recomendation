@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     QUEUE_NAME: str = 'my_queue'
 
     ZOOKEEPER_CLIENT_PORT: int = 2181
+    KAFKA_CLIENT_PORT: int = 29092
 
     LogLevel: int = logging.INFO
 
