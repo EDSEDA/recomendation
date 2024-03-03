@@ -1,19 +1,9 @@
-from pydantic_settings import BaseSettings
+from grifon.config import Settings as SharedSettings
 import logging
 
 
-class Settings(BaseSettings):
-    RABBITMQ_HOST: str = 'localhost'
-    RABBITMQ_PORT: int = 5672  # порт по умолчанию для RabbitMQ
-    RABBITMQ_USER: str = 'myuser'
-    RABBITMQ_PASSWORD: str = 'mypassword'
-
-    QUEUE_NAME: str = 'my_queue'
-
-    ZOOKEEPER_CLIENT_PORT: int = 2181
-    KAFKA_CLIENT_PORT: int = 29092
-
-    LogLevel: int = logging.INFO
+class Settings(SharedSettings):
+    ThisServiceField: int = 1
 
     class Config:
         env_file = '.env'
@@ -21,6 +11,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-logging.basicConfig(level=logging.INFO)
 
-CLIENT_AVATAR_PATH = 'resources/clients'

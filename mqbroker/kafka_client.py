@@ -8,7 +8,6 @@ if sys.version_info >= (3, 12, 0):
 from kafka import KafkaConsumer, KafkaProducer
 import json
 import logging
-from config import settings
 
 
 class KafkaClient:
