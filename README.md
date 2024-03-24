@@ -16,5 +16,5 @@ docker-compose up -d
 
 Run app:
 ```bash
-python main.py
+python app.py
 ```
