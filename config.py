@@ -1,9 +1,9 @@
 from grifon.config import Settings as SharedSettings
-import logging
 
 
 class Settings(SharedSettings):
     ThisServiceField: int = 1
+    version = '0-0-1'
 
     class Config:
         env_file = '.env'
@@ -11,4 +11,3 @@ class Settings(SharedSettings):
 
 
 settings = Settings()
-
