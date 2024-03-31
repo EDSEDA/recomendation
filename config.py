@@ -3,7 +3,7 @@ from grifon.config import Settings as SharedSettings
 
 class Settings(SharedSettings):
     ThisServiceField: int = 1
-    version = '0-0-1'
+    version: str = '0-0-1'
 
     class Config:
         env_file = '.env'
