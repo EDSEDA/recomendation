@@ -164,4 +164,3 @@ recommendation/data/
 grifon-models-*.json
 /data
 /recommendation
-*.dvc
