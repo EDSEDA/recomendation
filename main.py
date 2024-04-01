@@ -6,7 +6,7 @@ from grifon.mqbroker.kafka_client import KafkaClient
 from grifon.recommendation.schema import CreateUserRecommendationMessage, UserRecommendationMessage
 
 from config import settings
-from recommendation.inference.model import Model
+from inference.model import Model
 
 # !!!!!! change me !!!!!!
 topic_name = "my_topic"
@@ -14,7 +14,7 @@ topic_name = "my_topic"
 kafka_client = KafkaClient("localhost:9092")
 
 # Сетапим модель
-with open(f'./recommendation/artifacts/{settings.version}.pickle', 'rb') as file:
+with open(f'./recommendation/{settings.version}.pickle', 'rb') as file:
     model: Model = pickle.load(file)
 
 
