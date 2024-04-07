@@ -18,7 +18,7 @@ with open(f'./recommendation/{settings.version}.pickle', 'rb') as file:
 
 
 @kafka_client.register_topic_handler(settings.RECOMMENDATION_REQUEST_TOPIC)
-def handle_create_user_recommendation_message(create_message: CreateUserRecommendationMessage):
+async def handle_create_user_recommendation_message(create_message: CreateUserRecommendationMessage):
     try:
         create_message = CreateUserRecommendationMessage.parse_obj(json.loads(create_message.value()))
         info(f'Creating recommendations: {create_message}')
