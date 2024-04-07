@@ -1,9 +1,5 @@
-git+ssh://git@github.com/EDSEDA/api.git
+# git+ssh://git@github.com/EDSEDA/api.git
 
 pika==1.2.0
-
-pydantic~=2.6.1
-pydantic-settings~=2.1.0
-kafka-python~=2.0.2
 
 lightfm==1.17
