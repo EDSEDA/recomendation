@@ -1,6 +1,7 @@
+from logging import info
+
 import asyncio
 import pickle
-from logging import info
 
 from config import settings
 from grifon.config import settings

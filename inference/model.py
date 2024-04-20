@@ -1,4 +1,9 @@
 import numpy as np
+import pandas as pd
+
+
+used_products = pd.read_csv('data/used_products.csv', usecols=['product_id', 'product_name'])
+used_products = pd.Series(used_products['product_id'].values, index=used_products['product_name']).to_dict()
 
 
 class Model:
@@ -22,5 +27,5 @@ class Model:
             item_ids=self.internal_product_ids,
         )
         prediction = np.argsort(prediction)[-1:-6:-1]
-        prediction = [self.inv_item_mappings[x] for x in prediction]
+        prediction = [used_products[product_id] for product_id in [self.inv_item_mappings[x] for x in prediction]]
         return prediction
