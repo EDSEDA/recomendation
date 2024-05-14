@@ -3,7 +3,7 @@ from logging import info
 import asyncio
 import pickle
 
-from config import settings
+from config import settings as local_settings
 from grifon.config import settings
 from grifon.mqbroker.kafka_client import KafkaClient
 from grifon.recommendation.schema import CreateUserRecommendationMessage, UserRecommendationMessage
@@ -12,7 +12,7 @@ from inference.model import Model
 kafka_client = KafkaClient("localhost:9092")
 
 # Сетапим модель
-with open(f'./recommendation/{settings.version}.pickle', 'rb') as file:
+with open(f'./recommendation/{local_settings.version}.pickle', 'rb') as file:
     model: Model = pickle.load(file)
 
 
@@ -20,7 +20,7 @@ with open(f'./recommendation/{settings.version}.pickle', 'rb') as file:
 async def handle_create_user_recommendation_message(create_message: CreateUserRecommendationMessage):
     info(f'Creating recommendations: {create_message}')
 
-    recommendations = model.get_recommendations()   # пока без параметров
+    recommendations = model.get_recommendations(create_message.user_id)   # пока без параметров
 
     user_recommendation_message = UserRecommendationMessage(
         user_id=create_message.user_id,
